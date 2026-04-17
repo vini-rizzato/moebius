@@ -1,0 +1,71 @@
+.biographic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: var(--secondary-color);
+  overflow: hidden;
+}
+
+.biographic__image-side {
+  position: relative;
+  overflow: hidden;
+}
+
+.biographic__image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%) contrast(1.05);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.biographic__image-side::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 70%,
+    var(--secondary-color) 100%
+  );
+  pointer-events: none;
+}
+
+.biographic__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 6vw, 5rem);
+  position: relative;
+}
+
+.biographic__content::before {
+  content: "";
+  position: absolute;
+  top: clamp(2rem, 6vw, 5rem);
+  left: clamp(2rem, 6vw, 5rem);
+  width: 3rem;
+  height: 2px;
+  background: var(--primary-color);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .biographic {
+    grid-template-columns: 1fr;
+    grid-template-rows: 45vh auto;
+  }
+
+  .biographic__image-side::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 70%,
+      var(--secondary-color) 100%
+    );
+  }
+
+  .biographic__content {
+    padding: clamp(1.5rem, 5vw, 3rem);
+  }
+}

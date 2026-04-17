@@ -1,0 +1,192 @@
+.side-card-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  cursor: pointer;
+}
+
+.side-card-window {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 44vw;
+  min-width: 360px;
+  height: 100vh;
+  background: #0e0e0e;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.side-card-image {
+  position: relative;
+  width: 100%;
+  height: 42%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.side-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.side-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    #0e0e0e 100%
+  );
+}
+
+.side-card-glow {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.side-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 2.5rem 2.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.side-card-tag {
+  display: block;
+  font-family: monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+}
+
+.side-card-title {
+  font-family: 'Georgia', serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: #fff;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.side-card-subtitle {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 1.2rem;
+}
+
+.side-card-divider {
+  height: 1px;
+  margin-bottom: 1.4rem;
+  transform-origin: left;
+  border: none;
+}
+
+.side-card-text {
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.85;
+  margin: 0 0 1.8rem;
+  flex: 1;
+}
+
+.side-card-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.side-card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.side-card-stat-label {
+  font-family: monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.side-card-stat-value {
+  font-family: 'Georgia', serif;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+}
+
+.side-card-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s;
+}
+
+.side-card-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.side-card-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+
+.side-card-corner--tl { top: 0;    left: 0; }
+.side-card-corner--br { bottom: 0; right: 0; transform: rotate(180deg); }
+
+.side-card-scanlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.07) 2px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 5;
+}

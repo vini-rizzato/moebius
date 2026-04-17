@@ -1,0 +1,56 @@
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.85rem 2.2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.25),      
+        inset 0 1px 0 rgba(255,255,255,0.15);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
+}
+
+.primary-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.00) 30%,
+        rgba(255,255,255,0.18) 50%,
+        rgba(255,255,255,0.00) 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+        0 5px 0 rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.primary-button:hover::before {
+    transform: translateX(100%);
+}
+
+.primary-button:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.10);
+    filter: brightness(0.97);
+}
