@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,400&family=DM+Mono:wght@300;400&display=swap');
+
+.legacy {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.legacy-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(239, 200, 51, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239, 200, 51, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.legacy-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 80% at 50% 50%,
+    transparent 30%,
+    #080808 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.legacy-scanlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.12) 3px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.legacy-diagonal {
+  position: absolute;
+  top: 0;
+  right: 18%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(239, 200, 51, 0.15) 30%,
+    rgba(239, 200, 51, 0.15) 70%,
+    transparent
+  );
+  transform: skewX(-8deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.legacy-diagonal-2 {
+  position: absolute;
+  top: 0;
+  right: 22%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(239, 200, 51, 0.06) 40%,
+    rgba(239, 200, 51, 0.06) 60%,
+    transparent
+  );
+  transform: skewX(-8deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.legacy-inner {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 4rem;
+  align-items: center;
+}
+
+.legacy-left {
+  padding-right: 5rem;
+  border-right: 1px solid rgba(239, 200, 51, 0.12);
+}
+
+.legacy-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #efc833;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.legacy-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #efc833;
+}
+
+.legacy-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+}
+
+.legacy-title em {
+  font-style: italic;
+  color: #efc833;
+}
+
+.legacy-body {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.9;
+  margin: 0 0 2.5rem;
+  max-width: 560px;
+}
+
+.legacy-quote {
+  position: relative;
+  padding: 1.2rem 1.4rem;
+  border-left: 2px solid #efc833;
+  background: rgba(239, 200, 51, 0.04);
+}
+
+.legacy-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #efc833;
+  line-height: 0;
+  position: absolute;
+  top: 1.6rem;
+  left: 1rem;
+  opacity: 0.3;
+}
+
+.legacy-quote p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0 0 0.5rem;
+  padding-left: 0.4rem;
+}
+
+.legacy-quote cite {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #efc833;
+  opacity: 0.7;
+}
+
+.legacy-right {
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.legacy-influences-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.2rem;
+}
+
+.legacy-influence-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: default;
+}
+
+.legacy-influence-item:last-child {
+  border-bottom: none;
+}
+
+.legacy-influence-index {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(239, 200, 51, 0.4);
+  min-width: 20px;
+}
+
+.legacy-influence-bar {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.legacy-influence-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(to right, #efc833, rgba(239, 200, 51, 0.3));
+}
+
+.legacy-influence-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  min-width: 120px;
+  text-align: right;
+  transition: color 0.2s;
+}
+
+.legacy-influence-item:hover .legacy-influence-name {
+  color: #efc833;
+}
+
+.legacy-footer {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+.legacy-footer-line {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.legacy-footer-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.legacy-year {
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: rgba(239, 200, 51, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}

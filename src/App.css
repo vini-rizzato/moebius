@@ -5,7 +5,7 @@
 @import url('./sections/Cards/style.css');
 @import url('./components/Card/style.css');
 @import url('./components/SideCardWIndow/style.css');
-
+@import url('./sections/Legacy/style.css');
 
 :root {
     --primary-color: #efc833;
