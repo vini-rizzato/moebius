@@ -4,8 +4,20 @@
     padding: clamp(2rem, 10vw, 5rem);
     overflow-x: auto;
     height: 100vh;
-    background-image: url(../../images/moebius-4.jpg);
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+        url(../../images/moebius-4.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    animation: background-animation 20s infinite;
+    animation-direction: alternate;
+}
+@keyframes background-animation {
+    0%{
+        background-size: 110%;
+    }
+    100%{
+        background-size: 120%;
+    }
 }
