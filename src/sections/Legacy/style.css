@@ -121,9 +121,6 @@
 }
 
 .legacy-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
   color: #fff;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -136,10 +133,7 @@
 }
 
 .legacy-body {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.52);
   line-height: 1.9;
   margin: 0 0 2.5rem;
   max-width: 560px;

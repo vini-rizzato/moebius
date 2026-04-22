@@ -100,15 +100,6 @@ export default function Legacy() {
 
         <div className="legacy-left">
 
-          <motion.div
-            className="legacy-eyebrow"
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            Seção 04 — Legado
-          </motion.div>
-
           <motion.h2
             className="legacy-title"
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}

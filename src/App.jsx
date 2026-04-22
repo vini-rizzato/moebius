@@ -4,12 +4,14 @@ import { useState, useRef, useCallback } from "react";
 import Hero from './sections/Hero';
 import Biographic from './sections/Biographic';
 import Cards from './sections/Cards';
+import Legacy from "./sections/Legacy";
 import './App.css';
 
 const SECTIONS = [
   { id: "hero", component: <Hero /> },
   { id: "biographic", component: <Biographic /> },
   { id: "cards", component: <Cards /> },
+  { id: "legacy", component: <Legacy /> }
 ];
 
 const TRANSITION = {

@@ -8,7 +8,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
