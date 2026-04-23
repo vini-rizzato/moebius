@@ -17,7 +17,7 @@ function InfluenceItem({ name, fill, index, isInView }) {
       className="legacy-influence-item"
       initial={{ opacity: 0, x: 20 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ delay: 0.6 + index * 0.09, duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       whileHover={{ x: -4 }}
     >
       <span className="legacy-influence-index">
@@ -57,9 +57,6 @@ export default function Legacy() {
 
       <div className="legacy-grid" />
       <div className="legacy-vignette" />
-      <div className="legacy-scanlines" />
-      <div className="legacy-diagonal" />
-      <div className="legacy-diagonal-2" />
 
       {["1938", "1975", "1981", "2012"].map((year, i) => (
         <motion.span
@@ -96,7 +93,11 @@ export default function Legacy() {
         }}
       />
 
-      <div className="legacy-inner">
+      <motion.div 
+      initial={{ opacity: 0, translateY: -20 }} 
+      animate={isInView ? { opacity: 1, translateY: 0 } : { opacity: 0 }}
+      transition={{ duration: 1.5 }}
+      className="legacy-inner">
 
         <div className="legacy-left">
 
@@ -112,7 +113,7 @@ export default function Legacy() {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             style={{
               height: 1,
               background: "linear-gradient(to right, #efc833, transparent)",
@@ -126,7 +127,7 @@ export default function Legacy() {
             className="legacy-body"
             initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.45, duration: 0.7 }}
+            transition={{ delay: 0.45, duration: 0.2 }}
           >
             A influência de Moebius no cinema e na cultura visual do século XX
             é difícil de mensurar — justamente porque se tornou o padrão.
@@ -142,9 +143,8 @@ export default function Legacy() {
             className="legacy-quote"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.2 }}
           >
-            <span className="legacy-quote-mark">"</span>
             <p>
               Você vê a influência dele em todo lugar. Ela perpassa tanta coisa
               que você não consegue escapar dela.
@@ -158,7 +158,7 @@ export default function Legacy() {
             className="legacy-influences-label"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.2 }}
           >
             Obras influenciadas
           </motion.span>
@@ -190,7 +190,7 @@ export default function Legacy() {
               fontSize: "0.58rem",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.18)",
+              color: "#ffffff",
             }}>
               Jean Giraud
             </span>
@@ -199,23 +199,12 @@ export default function Legacy() {
               fontSize: "0.58rem",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              color: "rgba(239,200,51,0.4)",
+              color: "var(--primary-color)",
             }}>
               1938 — 2012
             </span>
           </motion.div>
         </div>
-      </div>
-
-      <motion.div
-        className="legacy-footer"
-        initial={{ opacity: 0, y: 10 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <div className="legacy-footer-line" />
-        <span className="legacy-footer-text">Moebius — O universo em traços</span>
-        <div className="legacy-footer-line" />
       </motion.div>
 
     </section>

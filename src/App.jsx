@@ -100,6 +100,14 @@ function App() {
           {SECTIONS[index].component}
         </motion.div>
       </AnimatePresence>
+
+      <motion.div
+        className="legacy-footer"
+      >
+        <div className="legacy-footer-line" />
+        <span className="legacy-footer-text">Moebius — O universo em traços</span>
+        <div className="legacy-footer-line" />
+      </motion.div>
     </div>
   );
 }

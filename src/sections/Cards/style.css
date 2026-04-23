@@ -1,23 +1,39 @@
 .cards {
-    display: flex;
-    gap: 2rem;
-    padding: clamp(2rem, 10vw, 5rem);
-    overflow-x: auto;
-    height: 100vh;
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-        url(../../images/moebius-4.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: background-animation 20s infinite;
-    animation-direction: alternate;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: clamp(2rem, 10vw, 5rem);
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
 }
-@keyframes background-animation {
-    0%{
-        background-size: 110%;
-    }
-    100%{
-        background-size: 120%;
-    }
+
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.cards::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url(../../images/moebius-4.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: cards-bg-zoom 20s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.cards > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes cards-bg-zoom {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.08); }
 }

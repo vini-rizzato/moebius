@@ -1,4 +1,4 @@
-import MoebiusImage2 from "../../images/moebius-2.jpg";
+import MoebiusImage2 from "../../images/moebius-3.jpeg";
 import  { motion } from "motion/react"
 
 const Biographic = () => {
