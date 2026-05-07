@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 
 import Hero from './sections/Hero';
 import Biographic from './sections/Biographic';
@@ -40,7 +40,15 @@ const variants = {
 function App() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
   const isAnimating = useRef(false);
+  const touchStart = useRef(null);
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   const navigate = useCallback((dir) => {
     if (isAnimating.current) return;
@@ -66,11 +74,36 @@ function App() {
     if (e.key === "ArrowUp"   || e.key === "PageUp")   navigate(-1);
   }, [navigate]);
 
+  const handleTouchStart = useCallback((e) => {
+    touchStart.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    if (touchStart.current === null) return;
+    const dy = touchStart.current - e.changedTouches[0].clientY;
+    if (Math.abs(dy) > 50) navigate(dy > 0 ? 1 : -1);
+    touchStart.current = null;
+  }, [navigate]);
+
+  if (isMobile) {
+    return (
+      <div className="App App--mobile">
+        {SECTIONS.map(s => (
+          <div key={s.id} className="mobile-section">
+            {s.component}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div
       className="App"
       onWheel={handleWheel}
       onKeyDown={handleKey}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       tabIndex={0}
       style={{ outline: "none" }}
     >

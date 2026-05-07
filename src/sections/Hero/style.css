@@ -22,7 +22,7 @@
 }
 
 .hero-content {
-  padding: 0 16rem 0 4rem;
+  padding: 0 clamp(1.5rem, 12vw, 16rem) 0 clamp(1.5rem, 4vw, 4rem);
   height: 97.5vh;
   border: 1px solid white;
 }
@@ -49,11 +49,12 @@
 .hero-content p {
   position: relative;
   z-index: 1;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: white;
   margin-top: -0.5rem;
   margin-bottom: 2rem;
 }
+
 
 @keyframes hero-bg {
   0% {
@@ -61,5 +62,13 @@
   }
   100% {
       background-size: 120%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    animation: none;
+    background-size: cover;
+    background-position: center center;
   }
 }

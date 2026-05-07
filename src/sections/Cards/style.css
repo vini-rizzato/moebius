@@ -37,3 +37,15 @@
   from { transform: scale(1);    }
   to   { transform: scale(1.08); }
 }
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    height: auto;
+    padding: 4rem 1.5rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+}

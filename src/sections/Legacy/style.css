@@ -253,3 +253,41 @@
     background-position: 0% 50%;
   }
 }
+
+@media (max-width: 768px) {
+  .legacy {
+    height: auto;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .legacy-inner {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+  }
+
+  .legacy-left {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(239, 200, 51, 0.12);
+    padding-bottom: 2rem;
+  }
+
+  .legacy-right {
+    padding-left: 0;
+  }
+
+  .legacy-body {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .legacy-year {
+    font-size: 5rem !important;
+  }
+
+  .legacy-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}

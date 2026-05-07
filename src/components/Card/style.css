@@ -121,6 +121,19 @@
   gap: 6px;
 }
 
+@media (max-width: 768px) {
+  .card-wrapper {
+    width: 100%;
+    height: auto;
+    perspective: none;
+  }
+
+  .card-root {
+    height: auto;
+    min-height: 380px;
+  }
+}
+
 .card-scanlines {
   position: absolute;
   inset: 0;
